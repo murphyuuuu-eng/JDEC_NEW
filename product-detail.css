@@ -1,0 +1,139 @@
+.product-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(30px, 5vw, 70px);
+  align-items: center;
+  min-height: 560px;
+  padding: 82px clamp(18px, 5vw, 70px);
+  color: var(--white);
+  background:
+    linear-gradient(110deg, rgba(6, 21, 42, 0.96) 0%, rgba(6, 60, 128, 0.9) 52%, rgba(8, 118, 216, 0.72) 100%),
+    url("./assets/hero-aheqi.jpg") center / cover;
+}
+
+.product-detail-hero .eyebrow {
+  color: #8bdcff;
+}
+
+.product-detail-hero h1 {
+  font-size: clamp(38px, 5vw, 64px);
+}
+
+.product-detail-hero p {
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 18px;
+}
+
+.product-hero-panel {
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.product-hero-panel dl {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+}
+
+.product-hero-panel dt {
+  color: #8bdcff;
+  font-weight: 900;
+}
+
+.product-hero-panel dd {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.detail-section {
+  padding: 84px clamp(18px, 5vw, 70px);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.detail-copy p {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-list article,
+.spec-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 12px 32px rgba(7, 26, 51, 0.08);
+}
+
+.feature-list span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 900;
+  background: linear-gradient(135deg, #0876d8, #30b8ff);
+}
+
+.feature-list p,
+.spec-card p {
+  color: var(--muted);
+}
+
+.spec-band {
+  background: #f4f8fc;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.spec-card strong {
+  display: block;
+  color: var(--blue);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.detail-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.back-link {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .product-detail-hero,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-grid,
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
