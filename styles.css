@@ -319,7 +319,7 @@ img {
 }
 
 .hero-media {
-  background-image: url("./assets/hero-aheqi.jpg");
+  background-image: url("assets/hero-aheqi.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1698,7 +1698,7 @@ html[lang="ru"] .coverage-stats-title {
   color: var(--white);
   background:
     linear-gradient(120deg, rgba(5, 22, 48, 0.94), rgba(8, 118, 216, 0.82)),
-    url("./assets/cases/domestic/luzhou-xinglong-01.jpg") center / cover;
+    url("assets/cases/domestic/luzhou-xinglong-01.jpg") center / cover;
 }
 
 .cases-page-hero h1 {

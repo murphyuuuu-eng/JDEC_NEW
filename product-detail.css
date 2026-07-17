@@ -8,7 +8,7 @@
   color: var(--white);
   background:
     linear-gradient(110deg, rgba(6, 21, 42, 0.96) 0%, rgba(6, 60, 128, 0.9) 52%, rgba(8, 118, 216, 0.72) 100%),
-    url("./assets/hero-aheqi.jpg") center / cover;
+    url("assets/hero-aheqi.jpg") center / cover;
 }
 
 .product-detail-hero .eyebrow {
