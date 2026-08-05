@@ -88,9 +88,9 @@ const translations = {
       "Compact hybrid gas-insulated switchgear for 40.5kV distribution and substation applications.",
     productTwoTitle: "145kV GIS",
     productTwoText: "Gas-insulated metal-enclosed switchgear for 145kV transmission and substation projects.",
-    productThreeTitle: "145kV HGIS (1P enclosed)",
+    productThreeTitle: "145kV HGIS",
     productThreeText: "Single-phase enclosed 145kV HGIS with compact layout and reliable high-voltage performance.",
-    productFourTitle: "145kV HGIS (3P enclosed)",
+    productFourTitle: "145kV pass",
     productFourText:
       "Three-phase enclosed 145kV HGIS for integrated substation layouts and efficient project delivery.",
     productFiveTitle: "252kV GIS",
@@ -583,9 +583,9 @@ const translations = {
       "Компактное гибридное газоизолированное распределительное устройство для применений 40,5 кВ.",
     productTwoTitle: "145kV GIS",
     productTwoText: "Газоизолированное металлическое закрытое распределительное устройство для проектов 145 кВ.",
-    productThreeTitle: "145kV HGIS (1P enclosed)",
+    productThreeTitle: "145kV HGIS",
     productThreeText: "Однофазное закрытое HGIS 145 кВ с компактной компоновкой и надежными характеристиками.",
-    productFourTitle: "145kV HGIS (3P enclosed)",
+    productFourTitle: "145kV pass",
     productFourText:
       "Трехфазное закрытое HGIS 145 кВ для интегрированных компоновок подстанций.",
     productFiveTitle: "252kV GIS",
