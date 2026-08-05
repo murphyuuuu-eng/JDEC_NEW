@@ -338,9 +338,9 @@ const translations = {
       "适用于40.5kV配电及变电应用的紧凑型复合式气体绝缘开关设备。",
     productTwoTitle: "145kV GIS",
     productTwoText: "面向145kV输变电工程的气体绝缘金属封闭开关设备。",
-    productThreeTitle: "145kV HGIS（1P enclosed）",
+    productThreeTitle: "145kV HGIS",
     productThreeText: "145kV单相封闭复合式气体绝缘开关设备，布局紧凑、运行可靠。",
-    productFourTitle: "145kV HGIS（3P enclosed）",
+    productFourTitle: "145kV pass",
     productFourText:
       "145kV三相共箱复合式气体绝缘开关设备，适用于集成化变电站布置。",
     productFiveTitle: "252kV GIS",
