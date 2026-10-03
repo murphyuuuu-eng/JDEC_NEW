@@ -569,7 +569,13 @@
             <li data-i18n="inquiryPointThree">Sample and technical consultation</li>
           </ul>
         </div>
-        <form class="inquiry-form">
+        <form
+          class="inquiry-form"
+          action="https://formspree.io/f/xzezlavl"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New inquiry from the JDEC website" />
+          <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>
             <span data-i18n="formName">Name</span>
             <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="formNamePlaceholder" required />
@@ -597,7 +603,7 @@
             <textarea name="message" rows="5" placeholder="Please describe your voltage class, project type, quantity, and technical requirements." data-i18n-placeholder="formMessagePlaceholder"></textarea>
           </label>
           <button type="submit" class="button primary wide" data-i18n="formSubmit">Submit Inquiry</button>
-          <p class="form-note" role="status" aria-live="polite"></p>
+          <p class="form-note" role="status" aria-live="polite" aria-atomic="true"></p>
         </form>
       </section>
     </main>

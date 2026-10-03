@@ -250,7 +250,9 @@ const translations = {
     formMessage: "Message",
     formMessagePlaceholder: "Please describe your voltage class, project type, quantity, and technical requirements.",
     formSubmit: "Submit Inquiry",
-    formSuccess: "Thank you. Your inquiry has been recorded for website preview.",
+    formSubmitting: "Sending...",
+    formSuccess: "Thank you. Your inquiry has been sent successfully.",
+    formError: "We could not send your inquiry. Please try again or email jdec@cnjdec.com.",
     footerText: "One-stop solutions for 33kV-550kV GIS, HGIS and GIL manufacturing.",
     footerTagline: "Enterprise people-oriented, personnel integrity, professional management, standardized requirements",
     footerContactTitle: "Contact",
@@ -495,7 +497,9 @@ const translations = {
     formMessage: "留言",
     formMessagePlaceholder: "请描述电压等级、项目类型、数量和技术要求。",
     formSubmit: "提交询单",
-    formSuccess: "感谢您，询单已记录用于网站预览。",
+    formSubmitting: "正在提交…",
+    formSuccess: "感谢您，询单已成功发送。",
+    formError: "询单发送失败，请重试或发送邮件至 jdec@cnjdec.com。",
     footerText: "33kV-550kV GIS、HGIS、GIL 制造一站式解决方案。",
     footerTagline: "以人为本，诚信为先，专业管理，标准化要求",
     footerContactTitle: "联系方式",
@@ -745,7 +749,9 @@ const translations = {
     formMessage: "Сообщение",
     formMessagePlaceholder: "Укажите класс напряжения, тип проекта, количество и технические требования.",
     formSubmit: "Отправить запрос",
-    formSuccess: "Спасибо. Ваш запрос сохранен для предварительного просмотра сайта.",
+    formSubmitting: "Отправка...",
+    formSuccess: "Спасибо. Ваш запрос успешно отправлен.",
+    formError: "Не удалось отправить запрос. Повторите попытку или напишите на jdec@cnjdec.com.",
     footerText: "Комплексные решения для производства GIS, HGIS и GIL 33-550 кВ.",
     footerTagline: "Ориентация на людей, честность, профессиональное управление и стандартизированные требования",
     footerContactTitle: "Контакты",
@@ -850,10 +856,42 @@ navLinks?.addEventListener("click", (event) => {
   }
 });
 
-inquiryForm?.addEventListener("submit", (event) => {
+inquiryForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  formNote.textContent = translations[currentLanguage].formSuccess;
-  inquiryForm.reset();
+
+  const submitButton = inquiryForm.querySelector('button[type="submit"]');
+  const dictionary = translations[currentLanguage] || translations.en;
+  const submitLabel = dictionary.formSubmit;
+
+  submitButton.disabled = true;
+  submitButton.textContent = dictionary.formSubmitting;
+  inquiryForm.setAttribute("aria-busy", "true");
+  formNote.className = "form-note";
+  formNote.textContent = dictionary.formSubmitting;
+
+  try {
+    const response = await fetch(inquiryForm.action, {
+      method: "POST",
+      body: new FormData(inquiryForm),
+      headers: { Accept: "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Formspree returned ${response.status}`);
+    }
+
+    inquiryForm.reset();
+    formNote.classList.add("is-success");
+    formNote.textContent = dictionary.formSuccess;
+  } catch (error) {
+    console.error("Inquiry submission failed:", error);
+    formNote.classList.add("is-error");
+    formNote.textContent = dictionary.formError;
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = submitLabel;
+    inquiryForm.removeAttribute("aria-busy");
+  }
 });
 
 productScrollButtons.forEach((button) => {

@@ -2367,6 +2367,19 @@ html[lang="ru"] .coverage-stats-title {
   background: var(--white);
 }
 
+.inquiry-form .form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.inquiry-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 .wide {
   grid-column: 1 / -1;
 }
@@ -2377,6 +2390,14 @@ html[lang="ru"] .coverage-stats-title {
   margin: 0;
   color: #a8ecff;
   font-weight: 800;
+}
+
+.form-note.is-success {
+  color: #a8ecff;
+}
+
+.form-note.is-error {
+  color: #ffd1d1;
 }
 
 .footer {
