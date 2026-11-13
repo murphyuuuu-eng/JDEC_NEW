@@ -514,9 +514,9 @@ const translations = {
     copyright: "版权所有 2026 JDEC。保留所有权利。"
   },
   ru: {
-    pageTitle: "JDEC | Решения GIS, HGIS и GIL 33-550 кВ",
+    pageTitle: "JDEC — КРУЭ (GIS), HGIS и GIL 33–550 кВ",
     metaDescription:
-      "Jiangsu Jingdian Electric Co., Ltd (JDEC) предоставляет комплексные решения для производства, монтажа, наладки и технического обслуживания GIS, HGIS и GIL 33-550 кВ.",
+      "JDEC — производитель КРУЭ (GIS), гибридных распределительных устройств HGIS и газоизолированных линий GIL 33–550 кВ. Запросите технические данные и предложение для подстанции.",
     topSlogan: "Комплексные решения для производства GIS, HGIS и GIL 33-550 кВ",
     navHome: "Главная",
     navAbout: "О нас",
@@ -769,7 +769,8 @@ const translations = {
 
 const urlLanguage = new URLSearchParams(window.location.search).get("lang");
 const savedLanguage = localStorage.getItem("jdec-language");
-let currentLanguage = translations[urlLanguage] ? urlLanguage : translations[savedLanguage] ? savedLanguage : "en";
+const pageLanguage = document.documentElement.dataset.pageLanguage;
+let currentLanguage = pageLanguage || (translations[urlLanguage] ? urlLanguage : translations[savedLanguage] ? savedLanguage : "en");
 
 function withLanguageParam(href, language) {
   if (!href.includes(".html")) return href;
@@ -995,7 +996,17 @@ historyYearLinks.forEach((link) => {
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    applyLanguage(button.dataset.lang);
+    const language = button.dataset.lang;
+    const isHome = ["/", "/index.html"].includes(window.location.pathname);
+    if (language === "ru" && isHome) {
+      window.location.assign("/ru/" + window.location.hash);
+      return;
+    }
+    if (pageLanguage === "ru" && language !== "ru") {
+      window.location.assign("/?lang=" + language + window.location.hash);
+      return;
+    }
+    applyLanguage(language);
   });
 });
 
